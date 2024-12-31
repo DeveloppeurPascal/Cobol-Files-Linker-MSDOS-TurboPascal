@@ -1,0 +1,63 @@
+                     LINKEUR DE FICHIERS TEXTE.
+
+   A l'origine, ce programme ‚tait destin‚  uniquement  …  joindre 
+des fichiers fait en Cobol avec l'‚diteur ED_COBOL  (de  Pr‚martin 
+Patrick) qui ne pouvait avoir des  fichiers  sources  que  de  900 
+lignes.
+
+   Finalement, j'ai d‚cid‚ de g‚n‚raliser ce programme.  Tous  les 
+fichiers texte pourront ˆtre link‚s avec cet utilitaire qui  garde 
+quand mˆme le nom de LK_COBOL sur les disquettes.
+
+******************************************************************
+   LK_COBOL 1.1: (19/01/1991)
+
+* Voici comment vous pourrez linker des fichiers  texte  avec  cet 
+utilitaire.
+   Cr‚ez un fichier texte contenant les lignes suivantes:
+          *$PROGNAME nom_du_fichier_final.extension
+          *$INCLUDE  nom_du_premier_fichier_a_inclure
+          *$INCLUDE  nom_du_second_fichier_a_inclure
+                    ...
+          *$INCLUDE  nom_du_dernier_fichier_a_inclure
+   Une fois ce fichier constitu‚, lancez  LK_COBOL,  et  sp‚cifiez 
+lui le nom du fichier que  vous  venez  de  faire  (les  noms  de 
+fichiers doivent tous contenir le chemin d'accŠs … ces fichiers).
+
+* Ce programme prendra votre fichier de  directives,  puis  il  le 
+lira ligne par ligne, il cr‚era le fichier final en y mettant  les 
+uns aprŠs les autres les textes des fichiers que vous aurez nomm‚s 
+aprŠs le mot INCLUDE.
+
+* Ce qu'il faut retenir: - '*$' indique  au  programme  que  cette 
+ligne contient une directive de linkage  (vous  pouvez  placer  ce 
+signe n'importe o— avant l'instruction de linkage choisie);
+                         - 'PROGNAME' cette instruction doit  ˆtre 
+sur la premiŠre ligne de votre fichier, et elle ne doit apparaitre 
+qu'une seule fois dans celui-ci.
+                         - 'INCLUDE' cette instruction indique  au 
+programme de lire le fichier dont le chemin  d'accŠs  complet  est 
+sp‚cifi‚ aprŠs, et de l'‚crire … la suite de ce  qu'il  aura  d‚j… 
+‚crit dans le fichier final. 
+   Cette  instruction  peut  figurer  autant  de  fois que vous le 
+d‚sirerez,  la  seule  limite  est  l'obligation  que  le  nom  du 
+fichier  qui  la  suit  corresponde  …  un  fichier  ‚xistant   et 
+diff‚rent du fichier final. (sinon, on retombe dans un problŠme de 
+r‚cursivit‚: le programme lit le fichier final et ‚crit …  la  fin 
+de celui-ci, il n'en trouvera donc jamais la fin  car  il  rajoute 
+sans cesse des lignes; c'est un problŠme assez g‚nant !!!).
+
+******************************************************************
+Vous pouvez me contacter pour me donner des id‚es de programmes et 
+utilitaires,  mais  aussi  pour  m'indiquer  les  bugs  que   vous 
+trouverez dans mes programmes … l'adresse suivante (ou en personne 
+si vous me connaissez !):
+
+
+(maj du 31/12/2024 : adresse postale de l'epoque retiree du fichier, me contacter depuis https://developpeur-pascal.fr ou https://olfsoftware.fr pour toute question)
+
+
+******************************************************************
+
+Mise … jour de cette documentation le 24/06/1992.
+
